@@ -1,0 +1,99 @@
+<MyButton@Button>:
+    font_size: 30
+    font_name: "DejaVuSans.ttf"
+    size: 250, 30
+    outline_color: (0,0,0,0)
+    outline_width: 3
+    spacing: 6
+
+<MyLabel@Label>:
+    font_size:25
+    font_name: "DejaVuSans.ttf"
+
+<MyGridLayout>
+    canvas.before:
+        Color:
+            rgba: (0,0,0,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    # name:name
+    url:url
+    exito_label:exito_label
+    # filechooser:filechooser
+    BoxLayout:
+        orientation: 'vertical'
+        size:root.width, root.height
+
+        #spacing: 50
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint:1,0.8
+            padding: (10, 10)
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 5
+                #padding: (150, 0)
+                size_hint:0.5,1
+                MyLabel:
+                    text: "Url con m3u8:"
+                    size_hint:1,0.25
+                MyLabel:
+                    text: "Nombre:"
+                    size_hint:1,0.25
+                # MyLabel:
+                #     text: "Ubicacion:"
+                #     size_hint:1,0.5
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                TextInput:
+                    id: url
+                    multiline: True
+
+                TextInput:
+                    id: name
+                    multiline: False
+                # Label:
+                #     # id: Ubicacion
+                #     text: 'Documents/acordeon/'
+                #     background_color:(1,1,1,1)
+                #     canvas.before:
+                #         Color:
+                #             rgba: self.background_color
+                #         Rectangle:
+                #             pos: self.pos
+                #             size: self.size
+                # FileChooserListView:
+                #     id: filechooser
+                #     FileChooserIconLayout
+                #     FileChooserListLayout
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            MyLabel:
+                id: exito_label
+                text: ""
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint:1,0.2
+            spacing: 15
+            padding: (20, 20)
+            MyButton:
+                text: "Descargar"
+                on_press: root.download_courses()
+
+            MyButton:
+                right: self.parent.right
+                background_normal:''
+                background_color: (250/255, 45/255, 30/255,1)
+                text: "Cancelar"
+
+
+
+
+
